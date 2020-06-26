@@ -50,24 +50,36 @@ void Editor::Run()
 			running = false;
 		}
 		else if (m_categories["help"].count(com)) {
+			//  оманды выхода
 			for (const auto& com : m_categories["exit"])
 				std::cout << "[" << com << "] ";
 			std::cout << "- выйти из редактора\n";
+
+			//  оманды подсказки
 			for (const auto& com : m_categories["help"])
 				std::cout << "[" << com << "] ";
 			std::cout << "- вывести данную подсказку\n";
+			
+			//  оманды добавлени€
 			for (const auto& com : m_categories["add"])
 				std::cout << "[" << com << "] ";
 			std::cout << "<слово (с ударением)> - добавить слово в словарь (можно также пользоватьс€ как поиском).\n";
+			
+			//  оманды удалени€
 			for (const auto& com : m_categories["remove"])
 				std::cout << "[" << com << "] ";
 			std::cout << "<слово (без ударени€)> - удалить слово из словар€.\n";
+			
+			//  оманды обновлени€
 			for (const auto& com : m_categories["change"])
 				std::cout << "[" << com << "] ";
 			std::cout << "<слово (с ударением)> - обновл€ет ударение в слове.\n";
+			
+			//  оманды вывода словар€ (списка)
 			for (const auto& com : m_categories["list"])
 				std::cout << "[" << com << "] ";
 			std::cout << "- ¬ыводит список из всех слов в словаре.\n";
+			
 			std::cout.flush();
 		}
 		else if (m_categories["list"].count(com)) {
@@ -80,6 +92,7 @@ void Editor::Run()
 			std::string word;
 			std::cin >> word;
 			std::string lowerWord = StringLibrary::toLowerCase(word);
+
 			if (m_categories["add"].count(com)) {
 				if (lowerWords.count(lowerWord)) {
 					std::cout << "ƒанное слово уже в словаре! ¬от оно: " << lowerWords[lowerWord] << "\n";
