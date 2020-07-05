@@ -21,12 +21,12 @@ int main() {
 	system("color 0F");
 
 	cout << blue;
-	cout << "Добро пожаловать в программу по запоминанию ударений.\n";
-	cout << "Вам будет даваться слово, в котором вы должны правильно поставить ударение.\n";
-	cout << "Чтобы сделать это, вам нужно написать гласную, на которую падает ударение в верхнем регистре.\n";
-	cout << "Для того чтобы выйти из программы, напишите слово \'exit\'.\n";
-	cout << "Для того, чтобы изменить словарь, напишите слово \'editor\'.\n";
-	cout << "Удачи!" << endl;
+	cout << "Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬Гі ГЇГ® Г§Г ГЇГ®Г¬ГЁГ­Г Г­ГЁГѕ ГіГ¤Г Г°ГҐГ­ГЁГ©.\n";
+	cout << "Г‚Г Г¬ ГЎГіГ¤ГҐГІ Г¤Г ГўГ ГІГјГ±Гї Г±Г«Г®ГўГ®, Гў ГЄГ®ГІГ®Г°Г®Г¬ ГўГ» Г¤Г®Г«Г¦Г­Г» ГЇГ°Г ГўГЁГ«ГјГ­Г® ГЇГ®Г±ГІГ ГўГЁГІГј ГіГ¤Г Г°ГҐГ­ГЁГҐ.\n";
+	cout << "Г—ГІГ®ГЎГ» Г±Г¤ГҐГ«Г ГІГј ГЅГІГ®, ГўГ Г¬ Г­ГіГ¦Г­Г® Г­Г ГЇГЁГ±Г ГІГј ГЈГ«Г Г±Г­ГіГѕ, Г­Г  ГЄГ®ГІГ®Г°ГіГѕ ГЇГ Г¤Г ГҐГІ ГіГ¤Г Г°ГҐГ­ГЁГҐ Гў ГўГҐГ°ГµГ­ГҐГ¬ Г°ГҐГЈГЁГ±ГІГ°ГҐ.\n";
+	cout << "Г„Г«Гї ГІГ®ГЈГ® Г·ГІГ®ГЎГ» ГўГ»Г©ГІГЁ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г», Г­Г ГЇГЁГёГЁГІГҐ Г±Г«Г®ГўГ® \'exit\'.\n";
+	cout << "Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» ГЁГ§Г¬ГҐГ­ГЁГІГј Г±Г«Г®ГўГ Г°Гј, Г­Г ГЇГЁГёГЁГІГҐ Г±Г«Г®ГўГ® \'editor\'.\n";
+	cout << "Г“Г¤Г Г·ГЁ!" << endl;
 	cout << white;
 
 	Dictionary dictionary("database.txt");
@@ -43,11 +43,11 @@ int main() {
 			answered = false;
 		}
 		if (word == "") {
-			cout << "Ошибка! Словарь пуст!";
+			cout << "ГЋГёГЁГЎГЄГ ! Г‘Г«Г®ГўГ Г°Гј ГЇГіГ±ГІ!";
 		}
 		else {
-			cout << "Слово: " << StringLibrary::toLowerCase(word) << "\n";
-			cout << "Ответ: ";
+			cout << "Г‘Г«Г®ГўГ®: " << StringLibrary::toLowerCase(word) << "\n";
+			cout << "ГЋГІГўГҐГІ: ";
 		}
 		string ans; cin >> ans;
 		if (ans == "exit") {
@@ -59,17 +59,17 @@ int main() {
 		}
 		else if (word != "" && StringLibrary::toLowerCase(word) == StringLibrary::toLowerCase(ans)) {
 			if (ans == word) {
-				cout << green << "Ответ верный!\n" << white;
+				cout << green << "ГЋГІГўГҐГІ ГўГҐГ°Г­Г»Г©!\n" << white;
 				++correctAnswers;
 			}
 			else {
-				cout << red << "Ответ неверный, правильный ответ: " << word << "\n" << white;
+				cout << red << "ГЋГІГўГҐГІ Г­ГҐГўГҐГ°Г­Г»Г©, ГЇГ°Г ГўГЁГ«ГјГ­Г»Г© Г®ГІГўГҐГІ: " << word << "\n" << white;
 			}
 			++allAnswers;
 			answered = true;
 		}
 		else {
-			cout << blue << "Кажется, вы неправильно ввели слово, давайте попробуем ещё раз\n" << white;
+			cout << blue << "ГЉГ Г¦ГҐГІГ±Гї, ГўГ» Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГўГҐГ«ГЁ Г±Г«Г®ГўГ®, Г¤Г ГўГ Г©ГІГҐ ГЇГ®ГЇГ°Г®ГЎГіГҐГ¬ ГҐГ№Вё Г°Г Г§\n" << white;
 		}
 	}
 	
@@ -77,11 +77,11 @@ int main() {
 	double percent = allAnswers == 0 ? 0.0 : correctAnswers * 1.0 / allAnswers * 100.0;
 	double avaragePercent = stat.GetAvaragePercent();
 	cout << white;
-	cout << "Всего ответов: " << allAnswers << "\n";
-	cout << "Правильных ответов: " << green << correctAnswers << white << "\n";
-	cout << "Процент пральных ответов: " << (percent > 75 ? green : percent > 25 ? yellow : red) << percent << "%\n" << white;
+	cout << "Г‚Г±ГҐГЈГ® Г®ГІГўГҐГІГ®Гў: " << allAnswers << "\n";
+	cout << "ГЏГ°Г ГўГЁГ«ГјГ­Г»Гµ Г®ГІГўГҐГІГ®Гў: " << green << correctAnswers << white << "\n";
+	cout << "ГЏГ°Г®Г¶ГҐГ­ГІ ГЇГ°Г Г«ГјГ­Г»Гµ Г®ГІГўГҐГІГ®Гў: " << (percent > 75 ? green : percent > 25 ? yellow : red) << percent << "%\n" << white;
 	double delta = percent - avaragePercent;
-	cout << "Это на " << abs(delta) << "% " << (delta > 0 ? "больше" : "меньше") << ", чем средний процент, равный " << avaragePercent << "%\n";
+	cout << "ГќГІГ® Г­Г  " << abs(delta) << "% " << (delta > 0 ? "ГЎГ®Г«ГјГёГҐ" : "Г¬ГҐГ­ГјГёГҐ") << ", Г·ГҐГ¬ Г±Г°ГҐГ¤Г­ГЁГ© ГЇГ°Г®Г¶ГҐГ­ГІ, Г°Г ГўГ­Г»Г© " << avaragePercent << "%\n";
 	stat.AddStat(allAnswers, correctAnswers);
 	wait();
 	return 0;
