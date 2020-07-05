@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <Windows.h>
-
 #include "Dictionary.h"
 #include "Statistic.h"
 #include "StringLibrary.h"
