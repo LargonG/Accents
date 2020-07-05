@@ -10,12 +10,12 @@
 Editor::Editor(std::string database) : m_database(database)
 {
 	m_categories = {
-	{"exit", {"exit", "выход"}},
-	{"help", {"help", "помощь"}},
-	{"list", {"list", "словарь", "список"}},
-	{"add", {"add", "добавить"}},
-	{"remove", {"remove", "удалить"}},
-	{"change", {"change", "update", "изменить", "обновить"}}
+	{"exit", {"exit", "РІС‹С…РѕРґ"}},
+	{"help", {"help", "РїРѕРјРѕС‰СЊ"}},
+	{"list", {"list", "СЃР»РѕРІР°СЂСЊ", "СЃРїРёСЃРѕРє"}},
+	{"add", {"add", "РґРѕР±Р°РІРёС‚СЊ"}},
+	{"remove", {"remove", "СѓРґР°Р»РёС‚СЊ"}},
+	{"change", {"change", "update", "РёР·РјРµРЅРёС‚СЊ", "РѕР±РЅРѕРІРёС‚СЊ"}}
 	};
 	for (const auto& line : m_categories)
 		for (const auto& x : line.second)
@@ -42,7 +42,7 @@ void Editor::Run()
 		std::string com;
 		std::cin >> com;
 		if (!m_allCommands.count(com)) {
-			std::cout << "Данная команда на найдена!\nЧтобы получить список команд, введите \'помощь\' или \'help\'\n";
+			std::cout << "Р”Р°РЅРЅР°СЏ РєРѕРјР°РЅРґР° РЅР° РЅР°Р№РґРµРЅР°!\nР§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ СЃРїРёСЃРѕРє РєРѕРјР°РЅРґ, РІРІРµРґРёС‚Рµ \'РїРѕРјРѕС‰СЊ\' РёР»Рё \'help\'\n";
 			continue;
 		}
 
@@ -50,40 +50,40 @@ void Editor::Run()
 			running = false;
 		}
 		else if (m_categories["help"].count(com)) {
-			// Команды выхода
+			// РљРѕРјР°РЅРґС‹ РІС‹С…РѕРґР°
 			for (const auto& com : m_categories["exit"])
 				std::cout << "[" << com << "] ";
-			std::cout << "- выйти из редактора\n";
+			std::cout << "- РІС‹Р№С‚Рё РёР· СЂРµРґР°РєС‚РѕСЂР°\n";
 
-			// Команды подсказки
+			// РљРѕРјР°РЅРґС‹ РїРѕРґСЃРєР°Р·РєРё
 			for (const auto& com : m_categories["help"])
 				std::cout << "[" << com << "] ";
-			std::cout << "- вывести данную подсказку\n";
+			std::cout << "- РІС‹РІРµСЃС‚Рё РґР°РЅРЅСѓСЋ РїРѕРґСЃРєР°Р·РєСѓ\n";
 			
-			// Команды добавления
+			// РљРѕРјР°РЅРґС‹ РґРѕР±Р°РІР»РµРЅРёСЏ
 			for (const auto& com : m_categories["add"])
 				std::cout << "[" << com << "] ";
-			std::cout << "<слово (с ударением)> - добавить слово в словарь (можно также пользоваться как поиском).\n";
+			std::cout << "<СЃР»РѕРІРѕ (СЃ СѓРґР°СЂРµРЅРёРµРј)> - РґРѕР±Р°РІРёС‚СЊ СЃР»РѕРІРѕ РІ СЃР»РѕРІР°СЂСЊ (РјРѕР¶РЅРѕ С‚Р°РєР¶Рµ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РєР°Рє РїРѕРёСЃРєРѕРј).\n";
 			
-			// Команды удаления
+			// РљРѕРјР°РЅРґС‹ СѓРґР°Р»РµРЅРёСЏ
 			for (const auto& com : m_categories["remove"])
 				std::cout << "[" << com << "] ";
-			std::cout << "<слово (без ударения)> - удалить слово из словаря.\n";
+			std::cout << "<СЃР»РѕРІРѕ (Р±РµР· СѓРґР°СЂРµРЅРёСЏ)> - СѓРґР°Р»РёС‚СЊ СЃР»РѕРІРѕ РёР· СЃР»РѕРІР°СЂСЏ.\n";
 			
-			// Команды обновления
+			// РљРѕРјР°РЅРґС‹ РѕР±РЅРѕРІР»РµРЅРёСЏ
 			for (const auto& com : m_categories["change"])
 				std::cout << "[" << com << "] ";
-			std::cout << "<слово (с ударением)> - обновляет ударение в слове.\n";
+			std::cout << "<СЃР»РѕРІРѕ (СЃ СѓРґР°СЂРµРЅРёРµРј)> - РѕР±РЅРѕРІР»СЏРµС‚ СѓРґР°СЂРµРЅРёРµ РІ СЃР»РѕРІРµ.\n";
 			
-			// Команды вывода словаря (списка)
+			// РљРѕРјР°РЅРґС‹ РІС‹РІРѕРґР° СЃР»РѕРІР°СЂСЏ (СЃРїРёСЃРєР°)
 			for (const auto& com : m_categories["list"])
 				std::cout << "[" << com << "] ";
-			std::cout << "- Выводит список из всех слов в словаре.\n";
+			std::cout << "- Р’С‹РІРѕРґРёС‚ СЃРїРёСЃРѕРє РёР· РІСЃРµС… СЃР»РѕРІ РІ СЃР»РѕРІР°СЂРµ.\n";
 			
 			std::cout.flush();
 		}
 		else if (m_categories["list"].count(com)) {
-			std::cout << "Словарь: ";
+			std::cout << "РЎР»РѕРІР°СЂСЊ: ";
 			for (const auto& x : words)
 				std::cout << x << "\n";
 			std::cout << std::endl;
@@ -95,8 +95,8 @@ void Editor::Run()
 
 			if (m_categories["add"].count(com)) {
 				if (lowerWords.count(lowerWord)) {
-					std::cout << "Данное слово уже в словаре! Вот оно: " << lowerWords[lowerWord] << "\n";
-					std::cout << "Если вы хотите поменять ударение, то введите команду update" << std::endl;
+					std::cout << "Р”Р°РЅРЅРѕРµ СЃР»РѕРІРѕ СѓР¶Рµ РІ СЃР»РѕРІР°СЂРµ! Р’РѕС‚ РѕРЅРѕ: " << lowerWords[lowerWord] << "\n";
+					std::cout << "Р•СЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ РїРѕРјРµРЅСЏС‚СЊ СѓРґР°СЂРµРЅРёРµ, С‚Рѕ РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ update" << std::endl;
 				}
 				else {
 					words.insert(word);
@@ -105,7 +105,7 @@ void Editor::Run()
 			}
 			else if (m_categories["remove"].count(com)) {
 				if (!lowerWords.count(lowerWord)) {
-					std::cout << "Данного слова нет в словаре!" << std::endl;
+					std::cout << "Р”Р°РЅРЅРѕРіРѕ СЃР»РѕРІР° РЅРµС‚ РІ СЃР»РѕРІР°СЂРµ!" << std::endl;
 				}
 				else {
 					words.erase(lowerWords[lowerWord]);
@@ -114,7 +114,7 @@ void Editor::Run()
 			}
 			else if (m_categories["change"].count(com)) {
 				if (!lowerWords.count(lowerWord)) {
-					std::cout << "Данного слова нет в словаре!" << std::endl;
+					std::cout << "Р”Р°РЅРЅРѕРіРѕ СЃР»РѕРІР° РЅРµС‚ РІ СЃР»РѕРІР°СЂРµ!" << std::endl;
 				}
 				else {
 					words.erase(lowerWords[lowerWord]);
